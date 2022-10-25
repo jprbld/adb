@@ -1,0 +1,109 @@
+
+-- Locações por periodo (marca, modelo, data retirada, data devolucao, dias, preço e valor locação). 
+-- Período de 01/02/2022 a 28/02/2022
+
+
+-- Locações por periodo (Valor total das locações)
+
+
+
+
+--> SubRotinas: blocos de instruções que executam uma funcionalidade e 
+--              podem ser executados/chamados/invocados quando necessário.
+--              Conceitualmente (em algoritmos) são definidos em dois tipos:
+--					* Funções: Retorna um valor
+--                  * Procedimentos: Não retona valor
+--              Com a evolução e predominâcia de Linguagens Orientadas a Objetos
+--              as SubRotinas são chamadas simplesmente de Métodos e possuem uma "assinatura"
+--              (cabeçalho) que define a passagem de oarâmetros e retorno de valor
+
+
+--> Funções UDF (User Defined Functions ou Funções Definidas pelo Usuário)
+
+-- Usuários
+--		* Administrador e/ou Programador do Banco
+--		* Cliente e/ou elementos que interagem com o Banco (softwares, serviços, APIs etc.)
+
+
+--> Estrutura da Função
+
+-- Entrada (passagem de parâmetro)
+-- Processamento (as instruções na função)
+-- Saída (retorno de valor)
+
+-- Sem passagem de parâmetro e Sem retorno de valor
+
+-- Seria uma função que não espera informações iniciais (parâmetros) para poder executar e não retorna valor, 
+-- porém, pela própria definição de função, deve existir um retorno.
+-- No caso da não existencia de um valor a ser retornado, a função pode retonar um true ou false 
+-- (que no caso do SQL Server é o tipo BIT com 1 ou 0) indicando se a função foi executada com sucesso ou não.
+-- Ou seja, uma função não retornar valor não faz muito sentido.
+
+
+
+
+--> Função com Valor Escalar (retorna um valor tipado)
+
+-- Função TotalLocacoes
+
+--> Sem passagem de parâmetro e Com retorno de valor
+
+--> Com passagem de parâmetro e Com retorno de valor (formato mais comum)
+
+-- Evitar sempre que possível utilizar valores fixos nas funções e procedimentos
+-- dando prioridade a variáves, passagens de parâmetros e retorno de valores
+-- deixando as funções/procedimentos mais "genéricos" (podendo ser reaproveitados para diferentes valores)
+
+
+
+
+
+-- Consulta a categoria de um determinado veículo
+
+-- Função que recebe um nome de veiculos por parâmetro 
+-- e retorna a categoria de um determinado veículo
+
+
+
+
+
+
+
+
+
+--> Função com Valor de Tabela (retorna uma coleção de dados)
+
+-- Consulta os veiculos de um determinado ano de fabricação
+
+-- Função que recebe um ano de fabricação por parâmetro 
+-- e retorna os modelos de veiculos de um determinado ano
+
+
+-- Consulta uma categoria e retorna os veiculos e valores de locação dessa categoria
+
+-- Função que retorna os modelos de veiculos de um determinado ano
+
+
+
+
+
+
+
+
+-- Mais Funções (Valor Escalar)
+
+
+-- Recebe um estado (UF) e retorna quantos clientes a locadora possui nesse estado
+
+-- Recebe a placa de um veiculo e retorna se ele passou por manutenção ou não
+
+-- Recebe o cpf de um cliente e retorna o valor total que ele já gastou com locações
+
+
+
+-- Mais Funções (Valor de Tabela)
+
+
+-- Recebe o ano do modelo do veiculo e retorna a marca, modelo e cor dos veiculos
+
+-- Recebe um mês e ano de retirada e retorna as locações desse período (cliente, marca, modelo, retirada e devolucao)
