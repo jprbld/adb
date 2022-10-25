@@ -89,11 +89,11 @@ GO
 -- Recebe um mes e ano de retirada e retorna as locacoes desse periodo (cliente, marca, modelo, retirada e devolucao)
 
 
-CREATE OR ALTER FUNCTION LocacoesPeriodo(@Mes INT, @Ano INT) RETURNS @Locacoes TABLE( Cliente VARCHAR(50),
-																									Marca VARCHAR(20),
-																									Modelo VARCHAR(50),
-																									Retirada VARCHAR(15),
-																									Devolucao VARCHAR(15))
+CREATE OR ALTER FUNCTION LocacoesPeriodo(@Mes INT, @Ano INT) RETURNS @Locacoes TABLE(   Cliente VARCHAR(50),
+	Marca VARCHAR(20),
+    Modelo VARCHAR(50),
+    Retirada VARCHAR(15),
+    Devolucao VARCHAR(15))
 
 AS
 BEGIN
@@ -113,6 +113,5 @@ BEGIN
 	RETURN
 END
 GO
-
 
 SELECT * FROM dbo.LocacoesPeriodo (01,2022)
