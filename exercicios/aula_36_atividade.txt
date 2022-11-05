@@ -1,0 +1,106 @@
+Joao Paulo Rodrigues de Andrade
+
+1. Você deve retornar as colunas Nome e Preço de uma tabela chamada Produto no esquema de Produção. No conjunto de linhas resultante, você quer que a coluna Nome seja chamada ProductName. Qual das seguintes instruções Transact-SQL você deve usar?
+
+SELECT * FROM Product AS Production.Product;
+
+SELECT Name AS ProductName, Price FROM Production.Product;
+Correto. Selecione Nome e Preço da tabela Production.Product, usando a palavra-chave AS para especificar o alias ProductName para a coluna Nome.
+
+
+SELECT ProductName, Price FROM Production.Product;
+2. Você deve recuperar dados de uma coluna definida como char (1). Se o valor na coluna for um dígito entre 0 e 9, a consulta deverá retorná-lo como um valor inteiro. Caso contrário, a consulta deverá retornar NULL. Qual função deve ser usada?
+
+CAST
+
+NULLIF
+
+TRY_CONVERT
+Correto. Use TRY_CONVERT para converter o valor em um inteiro. Se a conversão falhar, será retornado NULL.
+
+3. Você deve retornar a coluna Cellphone da tabela Sales.Customer. Cellphone é uma coluna varchar que permite valores NULL. Para linhas em que o valor Cellphone é NULL, sua consulta deve retornar o texto 'None'. Qual consulta você deve usar?
+
+SELECT ISNULL(Cellphone, 'None') AS Cellphone FROM Sales.Customer;
+Correto. Use ISNULL para retornar o valor especificado quando a coluna de destino for NULL.
+
+
+SELECT NULLIF(Cellphone, 'None') AS Cellphone FROM Sales.Customer;
+
+SELECT CONVERT(varchar, Cellphone) AS None FROM Sales.Customer
+
+************************************************
+1. Você escreve uma consulta Transact-SQL para listar os tamanhos disponíveis para os produtos. Cada tamanho individual deve ser listado apenas uma vez. Que consulta você deve usar?
+
+SELECT Size FROM Production.Product;
+
+SELECT DISTINCT Size FROM Production.Product;
+Correto. Use a palavra-chave DISTINCT para eliminar linhas duplicadas no conjunto de resultados.
+
+
+SELECT ALL Size FROM Production.Product;
+2. Você deve retornar as colunas InvoiceNo e TotalDue da tabela Sales.Invoice em ordem decrescente do valor TotalDue. Que consulta você deve usar?
+
+SELECT * FROM Sales.Invoice ORDER BY TotalDue, InvoiceNo;
+
+SELECT InvoiceNo, TotalDue FROM Sales.Invoice ORDER BY TotalDue DESC;
+Correto. Use ORDER BY com DESC para classificar os resultados em ordem decrescente.
+
+
+SELECT TotalDue AS DESC, InvoiceNo FROM Sales.Invoice;
+3. Conclua esta consulta para retornar somente os produtos que têm um valor de Categoria de 2 ou 4: SELECT Name, Price FROM Production.Product Que cláusula você deve adicionar?
+
+ORDER BY Category;
+
+WHERE Category BETWEEN 2 AND 4;
+
+WHERE Category IN (2, 4);
+Correto. Use WHERE com uma cláusula IN para filtrar com base em valores discretos em uma lista.
+
+**********************************************
+1. Você deve retornar uma lista de todos os funcionários de vendas que fizeram ordens de vendas. Os funcionários que não fizeram ordens de vendas não devem ser incluídos nos resultados. Qual é o tipo de junção necessária?
+
+INNER
+Correto. Use uma INNER JOIN para recuperar apenas os registros que corresponderem nas duas tabelas.
+
+
+LEFT OUTER
+
+FULL OUTER
+2. Qual é o tipo de operação JOIN que não requer uma cláusula ON?
+
+LEFT OUTER JOIN
+
+CROSS JOIN
+Correto. Em uma CROSS JOIN, não há correspondência de valores entre tabelas e não é usada nenhuma cláusula ON.
+
+
+FULL JOIN
+3. Você grava a seguinte consulta: SELECT p.Name, c.Name FROM Store.Product AS p CROSS JOIN Store.Category AS c; O que a consulta retorna?
+
+Somente as linhas de dados nas quais o nome do produto é o mesmo que o nome da categoria
+
+Somente as linhas nas quais o nome do produto não é o mesmo que o nome da categoria
+
+Todas as combinações de nome de produto e categoria
+Correto. Uma CROSS JOIN retorna todas as combinações das duas tabelas.
+
+*************************************
+1. Uma consulta com uma subconsulta na cláusula WHERE retorna o seguinte erro: Msg 512, Level 16, State 1, Line 17 Subconsulta retornou mais de 1 valor. Isso não é permitido quando a subconsulta vem após =, !=, <, <= , >, >= ou quando ela é usada como uma expressão. O que podemos fazer para corrigir esse erro?
+
+Verifique se a subconsulta não está usando SELECT * na lista de seleção.
+
+Altere o operador que introduz a subconsulta para IN ou NOT IN
+Correto. O erro indica que mais de um valor está sendo retornado pela subconsulta e você não pode comparar uma lista de valores com operadores de comparação.
+
+
+Adicione DISTINCT à lista de seleção
+2. Quais das afirmações a seguir são verdadeiras em relação às subconsultas correlacionadas?
+
+Uma subconsulta correlacionada retorna um único valor escalar
+
+Uma subconsulta correlacionada retorna várias colunas e linhas
+
+Uma subconsulta correlacionada faz referência a um valor na consulta externa.
+Correto. Uma subconsulta correlacionada faz referência a um valor na consulta externa.
+
+**********************************************
